@@ -1,0 +1,73 @@
+from dataclasses import dataclass
+from enum import Enum
+from typing import List, Optional
+
+import numpy as np
+
+# Backwards compatibility for typing numpy arrays
+NumpyArray = np.ndarray  # represents a 1 dimensional numpy array
+NumpyMatrix = np.ndarray  # represents a 2 dimensional numpy array
+try:
+    from numpy.typing import NDArray
+
+    NumpyArray = NumpyMatrix = NDArray
+except ImportError:
+    pass
+
+from .aspn_base import AspnBase
+from .type_header import TypeHeader
+from .type_integrity import TypeIntegrity
+from .type_timestamp import TypeTimestamp
+
+
+class MeasurementTemperatureErrorModel(Enum):
+    """
+    Defines an optional error model for other than zero-mean, additive, white Gaussian noise (AWGN).
+    """
+
+    """
+    No additional error model provided (num_error_model_params = 0).
+    """
+    NONE = 0
+
+
+@dataclass
+class MeasurementTemperature(AspnBase):
+    """
+    Ambient temperature as measured by a sensor
+
+    ### Attributes
+
+    header - TypeHeader:
+            Standard ASPN measurement header.
+
+    time_of_validity - TypeTimestamp:
+            Time at which the measurement is considered to be valid.
+
+    temperature - float:
+            Reading from a temperature sensor.
+
+    variance - float:
+            Temperature variance.
+
+    error_model - MeasurementTemperatureErrorModel:
+            Defines an optional error model for other than zero-mean, additive, white Gaussian
+            noise (AWGN).
+
+    error_model_params - NumpyArray[float]:
+            Error model parameters that characterize the optional error model.
+
+    integrity - List[TypeIntegrity]:
+            Measurement integrity. Includes the integrity method used and an integrity value
+            (which is to be interpreted based upon the integrity method). The intent of allowing
+            num_integrity > 1 is to report multiple integrity values based on multiple integrity
+            methods.
+    """
+
+    header: TypeHeader
+    time_of_validity: TypeTimestamp
+    temperature: float
+    variance: float
+    error_model: MeasurementTemperatureErrorModel
+    error_model_params: NumpyArray[float]
+    integrity: List[TypeIntegrity]
