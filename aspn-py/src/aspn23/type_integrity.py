@@ -1,3 +1,8 @@
+"""
+This code is generated via https://git.aspn.us/pntos/firehose/-/blob/main/firehose/backends/aspn/aspn_yaml_to_python.py
+DO NOT hand edit code.  Make any changes required using the firehose repo instead.
+"""
+
 from dataclasses import dataclass
 from enum import Enum
 from typing import Optional
@@ -17,26 +22,13 @@ except ImportError:
 
 class TypeIntegrityIntegrityMethod(Enum):
     """
-    Enumerated field defines the integrity method used and the appropriate interpretation of
-    integrity_value. Integrity methods may use multiple enum entries if there is a need to pass multiple
-    integrity values. For example, an integrity method with 3 parameters may use 3 enum entries (e.g.,
-    MY_METHOD_VALUE1, MY_METHOD_VALUE2, MY_METHOD_VALUE3). When integrity is reported in a message, a
-    vector of integrity types is passed. In the MY_METHOD example, num_integrity = 3 just for the
-    MY_METHOD integrity. If additional integrity methods are also reported, then num_integrity would be
-    greater than 3 to include those additional methods.
-    See extensibility.md for more information on implementing enums.
-    """
-
-    """
-    Integrity method that identifies the assurance state of the measurement derived from the
-    assurance status defined in IS-GPS-153E. Use the following values for integrity_values.
-    integrity_value = 0, NOT_AVAILABLE. No assurance information available (default when
-    receiver does not provide assurance status)
-    integrity_value = 1, INIT.
-    integrity_value = 2, PENDING.
-    integrity_value = 3, USABLE.
-    integrity_value = 4, ASSURED. Measurement is assured.
-    integrity_value = 5, SUSPECT.
+    Enumerated field which describes the meaning of the integrity value. Integrity methods may use
+    multiple enum entries if there is a need to pass multiple integrity values. For example, an
+    integrity method with 3 parameters may use 3 enum entries (e.g., MY_METHOD_VALUE1, MY_METHOD_VALUE2,
+    MY_METHOD_VALUE3). When integrity is reported in a message, a vector of integrity types is passed.
+    In the MY_METHOD example, num_integrity = 3 just for the MY_METHOD integrity. If additional
+    integrity methods are also reported, then num_integrity would be greater than 3 to include those
+    additional methods.
     """
 
 
@@ -50,15 +42,13 @@ class TypeIntegrity:
     ### Attributes
 
     integrity_method - TypeIntegrityIntegrityMethod:
-            Enumerated field defines the integrity method used and the appropriate
-            interpretation of integrity_value. Integrity methods may use multiple enum entries if
-            there is a need to pass multiple integrity values. For example, an integrity method with
-            3 parameters may use 3 enum entries (e.g., MY_METHOD_VALUE1, MY_METHOD_VALUE2,
-            MY_METHOD_VALUE3). When integrity is reported in a message, a vector of integrity types
-            is passed. In the MY_METHOD example, num_integrity = 3 just for the MY_METHOD integrity.
-            If additional integrity methods are also reported, then num_integrity would be greater
-            than 3 to include those additional methods. See extensibility.md for more information on
-            implementing enums.
+            Enumerated field which describes the meaning of the integrity value. Integrity
+            methods may use multiple enum entries if there is a need to pass multiple integrity
+            values. For example, an integrity method with 3 parameters may use 3 enum entries (e.g.,
+            MY_METHOD_VALUE1, MY_METHOD_VALUE2, MY_METHOD_VALUE3). When integrity is reported in a
+            message, a vector of integrity types is passed. In the MY_METHOD example, num_integrity
+            = 3 just for the MY_METHOD integrity. If additional integrity methods are also reported,
+            then num_integrity would be greater than 3 to include those additional methods.
 
     integrity_value - Optional[Optional[float]]:
             Measurement integrity value to be interpreted based on the definition in the

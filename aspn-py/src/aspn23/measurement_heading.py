@@ -1,3 +1,8 @@
+"""
+This code is generated via https://git.aspn.us/pntos/firehose/-/blob/main/firehose/backends/aspn/aspn_yaml_to_python.py
+DO NOT hand edit code.  Make any changes required using the firehose repo instead.
+"""
+
 from dataclasses import dataclass
 from enum import Enum
 from typing import List, Optional
@@ -32,14 +37,14 @@ class MeasurementHeadingReference(Enum):
     attitudes, of which, heading could be one. The simpler approach of just having heading was chosen
     over the more general approach until there is a requirement for multiple, one-dimensional attitudes.
     """
-    TRUE_HEADING = 0
+    TRUE = 0
 
     """
     Magnetic heading. Direction to magnetic north expressed in the locally level NED frame as a
     rotation about the D-axis. In general, geographic position and time is required to convert from
     magnetic heading to true heading.
     """
-    MAGNETIC_HEADING = 1
+    MAGNETIC = 1
 
 
 class MeasurementHeadingErrorModel(Enum):

@@ -1,3 +1,8 @@
+"""
+This code is generated via https://git.aspn.us/pntos/firehose/-/blob/main/firehose/backends/aspn/aspn_yaml_to_python.py
+DO NOT hand edit code.  Make any changes required using the firehose repo instead.
+"""
+
 from dataclasses import dataclass
 from enum import Enum
 from typing import Optional
@@ -19,12 +24,7 @@ class TypeSatnavSignalDescriptorSignalDescriptor(Enum):
     """
     Three letter RINEX Observation Code of signal as given in Table A23 of RINEX 3.05 specification
     (https://files.igs.org/pub/data/format/rinex305.pdf). RINEX Observation Code must be paired with
-    Satellite system to determine a unique identifier Additionally, the following codes are also
-    included for military-specific GPS signals:
-    L1Y: Y code on L1
-    L1M: M code on L1
-    L2Y: Y code on L2
-    L2M: M code on L2
+    Satellite system to determine a unique identifier
     """
 
     """
@@ -368,7 +368,7 @@ class TypeSatnavSignalDescriptor:
     signal_descriptor - TypeSatnavSignalDescriptorSignalDescriptor:
             Three letter RINEX Observation Code of signal as given in Table A23 of RINEX 3.05
             specification (https://files.igs.org/pub/data/format/rinex305.pdf). RINEX Observation
-            Code must be paired with Satellite system to determine a unique identifier.
+            Code must be paired with Satellite system to determine a unique identifier
     """
 
     signal_descriptor: TypeSatnavSignalDescriptorSignalDescriptor

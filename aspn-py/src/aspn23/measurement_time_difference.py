@@ -1,3 +1,8 @@
+"""
+This code is generated via https://git.aspn.us/pntos/firehose/-/blob/main/firehose/backends/aspn/aspn_yaml_to_python.py
+DO NOT hand edit code.  Make any changes required using the firehose repo instead.
+"""
+
 from dataclasses import dataclass
 from enum import Enum
 from typing import List, Optional
@@ -74,10 +79,11 @@ class MeasurementTimeDifference(AspnBase):
 
     time_diff_nsec - int:
             Whole number nanoseconds in time difference (time from clock_id1) - (time from
-            clock_id2). This value shall be positive when (time from clock_id1) - (time from
-            clock_id2) is greater than or equal to zero. This value shall be negative when (time
-            from clock_id1) - (time from clock_id2) is less than zero.Additionally, the timestamp's
-            digits of precision are included as `digits_of_precision`.
+            clock_id2). Must be less than 1e9. This value shall be positive when (time from
+            clock_id1) - (time from clock_id2) is greater than or equal to zero. This value shall be
+            negative when (time from clock_id1) - (time from clock_id2) is less than
+            zero.Additionally, the timestamp's digits of precision are included as
+            `digits_of_precision`.
 
     time_diff_attosec - int:
             Whole number attoseconds in time difference (time from clock_id1) - (time from

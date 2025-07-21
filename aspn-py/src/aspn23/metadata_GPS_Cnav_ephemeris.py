@@ -1,3 +1,8 @@
+"""
+This code is generated via https://git.aspn.us/pntos/firehose/-/blob/main/firehose/backends/aspn/aspn_yaml_to_python.py
+DO NOT hand edit code.  Make any changes required using the firehose repo instead.
+"""
+
 from dataclasses import dataclass
 from typing import Optional
 
@@ -34,7 +39,7 @@ class MetadataGpsCnavEphemeris(AspnBase):
     time_of_validity - TypeTimestamp:
             Time at which the measurement is considered to be valid.
 
-    week_number - int:
+    week_number - Optional[Optional[int]]:
             Full GPS week number calculated from the Modulo 1024 WN in Subframe 1 and the number
             of GPS week rollovers
 
@@ -78,7 +83,7 @@ class MetadataGpsCnavEphemeris(AspnBase):
 
     info: TypeMetadataheader
     time_of_validity: TypeTimestamp
-    week_number: int
+    week_number: Optional[int]
     prn: int
     clock: TypeSatnavClock
     orbit: TypeKeplerOrbit

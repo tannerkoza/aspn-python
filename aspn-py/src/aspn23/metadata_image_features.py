@@ -1,3 +1,8 @@
+"""
+This code is generated via https://git.aspn.us/pntos/firehose/-/blob/main/firehose/backends/aspn/aspn_yaml_to_python.py
+DO NOT hand edit code.  Make any changes required using the firehose repo instead.
+"""
+
 from dataclasses import dataclass
 from enum import Enum
 from typing import Optional
@@ -16,7 +21,6 @@ except ImportError:
 
 from .aspn_base import AspnBase
 from .type_metadataheader import TypeMetadataheader
-from .type_timestamp import TypeTimestamp
 
 
 class MetadataImageFeaturesKeypointDetector(Enum):
@@ -158,9 +162,6 @@ class MetadataImageFeatures(AspnBase):
     info - TypeMetadataheader:
             Standard ASPN metadata header.
 
-    time_of_validity - TypeTimestamp:
-            Time at which the measurement is considered to be valid.
-
     keypoint_detector - MetadataImageFeaturesKeypointDetector:
             Enumerated field which provides the type of keypoint detector used.
 
@@ -183,14 +184,13 @@ class MetadataImageFeatures(AspnBase):
     descriptor_number_of_elements - int:
             The number of elements of type 'descriptor_type' in the descriptor data array. In
             type_image_feature, descriptor data is represented as an array of uint8 values whose
-            length is given by 'descriptor_size'. Inconjunction with descriptor_type, these fields
+            length is given by 'descriptor_size'. In conjunction with descriptor_type, these fields
             describe how that data should be interpreted. For example - descriptor_type UINT8:
             descriptor_number_of_elements == descriptor_size - descriptor_type FLOAT32:
             (descriptor_number_of_elements * 4) == descriptor_size
     """
 
     info: TypeMetadataheader
-    time_of_validity: TypeTimestamp
     keypoint_detector: MetadataImageFeaturesKeypointDetector
     orientation_calculated: bool
     descriptor_extractor: MetadataImageFeaturesDescriptorExtractor
