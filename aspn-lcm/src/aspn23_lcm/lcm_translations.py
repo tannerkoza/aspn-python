@@ -666,6 +666,30 @@ def type_satnav_obs_to_lcm(old: TypeSatnavObs) -> LcmTypeSatnavObs:
     return msg
 
 
+def type_custom_satnav_obs_to_lcm(old: TypeSatnavObs) -> LcmTypeSatnavObs:
+    msg = LcmTypeSatnavObs()
+    msg.prn = old.prn
+    msg.frequency = old.frequency
+    msg.pseudorange = old.pseudorange
+    msg.pseudorange_variance = old.pseudorange_variance
+    msg.pseudorange_rate_type = old.pseudorange_rate_type.value
+    msg.pseudorange_rate = old.pseudorange_rate
+    msg.pseudorange_rate_variance = old.pseudorange_rate_variance
+    msg.carrier_phase = old.carrier_phase
+    msg.carrier_phase_variance = old.carrier_phase_variance
+    msg.c_n0 = old.c_n0
+    msg.lock_count = old.lock_count
+    msg.iono_correction_source = old.iono_correction_source.value
+    msg.iono_correction_applied = old.iono_correction_applied
+    msg.tropo_correction_applied = old.tropo_correction_applied
+    msg.signal_bias_correction_applied = old.signal_bias_correction_applied
+    msg.satellite_system = old.satellite_system
+    msg.signal_descriptor = old.signal_descriptor
+    msg.integrity = [type_integrity_to_lcm(x) for x in old.integrity]
+
+    return msg
+
+
 def lcm_to_type_satnav_obs(old: LcmTypeSatnavObs) -> TypeSatnavObs:
     return TypeSatnavObs(
         prn=old.prn,
@@ -705,6 +729,23 @@ def type_satnav_sv_data_to_lcm(old: TypeSatnavSvData) -> LcmTypeSatnavSvData:
     msg.group_delay_enum = old.group_delay_enum.value
     msg.group_delay_vector = old.group_delay_vector
     msg.satellite_system = type_satnav_satellite_system_to_lcm(old.satellite_system)
+    msg.sv_data_time = type_satnav_time_to_lcm(old.sv_data_time)
+
+    return msg
+
+
+def type_custom_satnav_sv_data_to_lcm(old: TypeSatnavSvData) -> LcmTypeSatnavSvData:
+    msg = LcmTypeSatnavSvData()
+    msg.prn = old.prn
+    msg.ephemeris_type = old.ephemeris_type.value
+    msg.coordinate_frame = old.coordinate_frame.value
+    msg.sv_pos = old.sv_pos
+    msg.sv_vel = old.sv_vel
+    msg.sv_clock_bias = old.sv_clock_bias
+    msg.sv_clock_drift = old.sv_clock_drift
+    msg.group_delay_enum = old.group_delay_enum.value
+    msg.group_delay_vector = old.group_delay_vector
+    msg.satellite_system = old.satellite_system
     msg.sv_data_time = type_satnav_time_to_lcm(old.sv_data_time)
 
     return msg
@@ -2119,6 +2160,21 @@ def measurement_satnav_with_sv_data_to_lcm(
     msg.receiver_clock_time = type_satnav_time_to_lcm(old.receiver_clock_time)
     msg.obs = [type_satnav_obs_to_lcm(x) for x in old.obs]
     msg.sv_data = [type_satnav_sv_data_to_lcm(x) for x in old.sv_data]
+    msg.integrity = [type_integrity_to_lcm(x) for x in old.integrity]
+
+    return msg
+
+
+def measurement_custom_satnav_with_sv_data_to_lcm(
+    old: MeasurementSatnavWithSvData,
+) -> LcmMeasurementSatnavWithSvData:
+    msg = LcmMeasurementSatnavWithSvData()
+    msg.num_signal_types = old.num_signal_types
+    msg.header = type_header_to_lcm(old.header)
+    msg.time_of_validity = type_timestamp_to_lcm(old.time_of_validity)
+    msg.receiver_clock_time = type_satnav_time_to_lcm(old.receiver_clock_time)
+    msg.obs = [type_custom_satnav_obs_to_lcm(x) for x in old.obs]
+    msg.sv_data = [type_custom_satnav_sv_data_to_lcm(x) for x in old.sv_data]
     msg.integrity = [type_integrity_to_lcm(x) for x in old.integrity]
 
     return msg
