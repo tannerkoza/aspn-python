@@ -662,7 +662,7 @@ def type_navsim_satnav_sv_data_to_lcm(
 ) -> LcmTypeNavsimSatnavSvData:
     msg = LcmTypeNavsimSatnavSvData()
     msg.prn = old.prn
-    msg.satellite_system = type_satnav_satellite_system_to_lcm(old.satellite_system)
+    msg.satellite_system = old.satellite_system
     msg.ephemeris_type = old.ephemeris_type.value
     msg.sv_data_time = type_satnav_time_to_lcm(old.sv_data_time)
     msg.coordinate_frame = old.coordinate_frame.value
@@ -681,7 +681,7 @@ def lcm_to_type_navsim_satnav_sv_data(
 ) -> TypeNavsimSatnavSvData:
     return TypeNavsimSatnavSvData(
         prn=old.prn,
-        satellite_system=lcm_to_type_satnav_satellite_system(old.satellite_system),
+        satellite_system=old.satellite_system,
         ephemeris_type=TypeNavsimSatnavSvDataEphemerisType(old.ephemeris_type),
         sv_data_time=lcm_to_type_satnav_time(old.sv_data_time),
         coordinate_frame=TypeNavsimSatnavSvDataCoordinateFrame(old.coordinate_frame),

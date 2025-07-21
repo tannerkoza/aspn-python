@@ -18,7 +18,7 @@ class type_navsim_satnav_sv_data(object):
 
     __slots__ = ["icd_type_navsim_satnav_sv_data", "prn", "satellite_system", "ephemeris_type", "sv_data_time", "coordinate_frame", "sv_pos", "sv_vel", "sv_clock_bias", "sv_clock_drift", "group_delay_enum", "group_delay_vector"]
 
-    __typenames__ = ["int8_t", "int16_t", "aspn23_lcm.type_satnav_satellite_system", "int8_t", "aspn23_lcm.type_satnav_time", "int8_t", "double", "double", "double", "double", "int8_t", "float"]
+    __typenames__ = ["int8_t", "string", "string", "int8_t", "aspn23_lcm.type_satnav_time", "int8_t", "double", "double", "double", "double", "int8_t", "float"]
 
     __dimensions__ = [None, None, None, None, None, None, [3], [3], None, None, None, [4]]
 
@@ -54,20 +54,20 @@ class type_navsim_satnav_sv_data(object):
         LCM Type: int8_t
         """
 
-        self.prn = 0
+        self.prn = ""
         """
         Description: PRN code which identifies satellite (or slot number, in the case of GLONASS) of
         this ephemeris.
         Units: none
-        LCM Type: int16_t
+        LCM Type: string
         """
 
-        self.satellite_system = aspn23_lcm.type_satnav_satellite_system()
+        self.satellite_system = ""
         """
         Description: Describes the Satellite System which was used to generate the satellite information
         provided in this message.
         Units: none
-        LCM Type: aspn23_lcm.type_satnav_satellite_system
+        LCM Type: string
         """
 
         self.ephemeris_type = 0
@@ -145,9 +145,15 @@ class type_navsim_satnav_sv_data(object):
         return buf.getvalue()
 
     def _encode_one(self, buf):
-        buf.write(struct.pack(">bh", self.icd_type_navsim_satnav_sv_data, self.prn))
-        assert self.satellite_system._get_packed_fingerprint() == aspn23_lcm.type_satnav_satellite_system._get_packed_fingerprint()
-        self.satellite_system._encode_one(buf)
+        buf.write(struct.pack(">b", self.icd_type_navsim_satnav_sv_data))
+        __prn_encoded = self.prn.encode('utf-8')
+        buf.write(struct.pack('>I', len(__prn_encoded)+1))
+        buf.write(__prn_encoded)
+        buf.write(b"\0")
+        __satellite_system_encoded = self.satellite_system.encode('utf-8')
+        buf.write(struct.pack('>I', len(__satellite_system_encoded)+1))
+        buf.write(__satellite_system_encoded)
+        buf.write(b"\0")
         buf.write(struct.pack(">b", self.ephemeris_type))
         assert self.sv_data_time._get_packed_fingerprint() == aspn23_lcm.type_satnav_time._get_packed_fingerprint()
         self.sv_data_time._encode_one(buf)
@@ -170,8 +176,11 @@ class type_navsim_satnav_sv_data(object):
     @staticmethod
     def _decode_one(buf):
         self = type_navsim_satnav_sv_data()
-        self.icd_type_navsim_satnav_sv_data, self.prn = struct.unpack(">bh", buf.read(3))
-        self.satellite_system = aspn23_lcm.type_satnav_satellite_system._decode_one(buf)
+        self.icd_type_navsim_satnav_sv_data = struct.unpack(">b", buf.read(1))[0]
+        __prn_len = struct.unpack('>I', buf.read(4))[0]
+        self.prn = buf.read(__prn_len)[:-1].decode('utf-8', 'replace')
+        __satellite_system_len = struct.unpack('>I', buf.read(4))[0]
+        self.satellite_system = buf.read(__satellite_system_len)[:-1].decode('utf-8', 'replace')
         self.ephemeris_type = struct.unpack(">b", buf.read(1))[0]
         self.sv_data_time = aspn23_lcm.type_satnav_time._decode_one(buf)
         self.coordinate_frame = struct.unpack(">b", buf.read(1))[0]
@@ -185,7 +194,7 @@ class type_navsim_satnav_sv_data(object):
     def _get_hash_recursive(parents):
         if type_navsim_satnav_sv_data in parents: return 0
         newparents = parents + [type_navsim_satnav_sv_data]
-        tmphash = (0xe0f6280d4908de3+ aspn23_lcm.type_satnav_satellite_system._get_hash_recursive(newparents)+ aspn23_lcm.type_satnav_time._get_hash_recursive(newparents)) & 0xffffffffffffffff
+        tmphash = (0x79cef1c6a7ec7ad7+ aspn23_lcm.type_satnav_time._get_hash_recursive(newparents)) & 0xffffffffffffffff
         tmphash  = (((tmphash<<1)&0xffffffffffffffff) + (tmphash>>63)) & 0xffffffffffffffff
         return tmphash
     _packed_fingerprint = None

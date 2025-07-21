@@ -19,7 +19,6 @@ try:
 except ImportError:
     pass
 
-from .type_satnav_satellite_system import TypeSatnavSatelliteSystem
 from .type_satnav_time import TypeSatnavTime
 
 
@@ -97,11 +96,11 @@ class TypeNavsimSatnavSvData:
 
     ### Attributes
 
-    prn - int:
+    prn - str:
             PRN code which identifies satellite (or slot number, in the case of GLONASS) of this
             ephemeris.
 
-    satellite_system - TypeSatnavSatelliteSystem:
+    satellite_system - str:
             Describes the Satellite System which was used to generate the satellite information
             provided in this message.
 
@@ -141,8 +140,8 @@ class TypeNavsimSatnavSvData:
             that four is sufficient for all ephemeris.)
     """
 
-    prn: int
-    satellite_system: TypeSatnavSatelliteSystem
+    prn: str
+    satellite_system: str
     ephemeris_type: TypeNavsimSatnavSvDataEphemerisType
     sv_data_time: TypeSatnavTime
     coordinate_frame: TypeNavsimSatnavSvDataCoordinateFrame
