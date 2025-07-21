@@ -6,69 +6,138 @@ lcm-gen 1.5.0
 
 from .measurement_attitude_3d import measurement_attitude_3d as measurement_attitude_3d
 from .measurement_barometer import measurement_barometer as measurement_barometer
-from .measurement_range_rate_to_point import measurement_range_rate_to_point as measurement_range_rate_to_point
+from .measurement_range_rate_to_point import (
+    measurement_range_rate_to_point as measurement_range_rate_to_point,
+)
 from .type_satnav_obs import type_satnav_obs as type_satnav_obs
 from .metadata_IMU import metadata_IMU as metadata_IMU
 from .measurement_satnav import measurement_satnav as measurement_satnav
-from .measurement_frequency_difference import measurement_frequency_difference as measurement_frequency_difference
+from .measurement_frequency_difference import (
+    measurement_frequency_difference as measurement_frequency_difference,
+)
 from .measurement_image import measurement_image as measurement_image
 from .type_metadataheader import type_metadataheader as type_metadataheader
 from .type_remote_point import type_remote_point as type_remote_point
-from .metadata_GLONASS_ephemeris import metadata_GLONASS_ephemeris as metadata_GLONASS_ephemeris
+from .metadata_GLONASS_ephemeris import (
+    metadata_GLONASS_ephemeris as metadata_GLONASS_ephemeris,
+)
 from .measurement_position import measurement_position as measurement_position
-from .type_direction_2d_to_point import type_direction_2d_to_point as type_direction_2d_to_point
+from .type_direction_2d_to_point import (
+    type_direction_2d_to_point as type_direction_2d_to_point,
+)
 from .type_satnav_clock import type_satnav_clock as type_satnav_clock
-from .measurement_TDOA_1Tx_2Rx import measurement_TDOA_1Tx_2Rx as measurement_TDOA_1Tx_2Rx
+from .measurement_TDOA_1Tx_2Rx import (
+    measurement_TDOA_1Tx_2Rx as measurement_TDOA_1Tx_2Rx,
+)
 from .type_image_feature import type_image_feature as type_image_feature
 from .type_kepler_orbit import type_kepler_orbit as type_kepler_orbit
-from .measurement_angular_velocity import measurement_angular_velocity as measurement_angular_velocity
+from .measurement_angular_velocity import (
+    measurement_angular_velocity as measurement_angular_velocity,
+)
 from .metadata_generic import metadata_generic as metadata_generic
-from .measurement_direction_of_motion_2d import measurement_direction_of_motion_2d as measurement_direction_of_motion_2d
+from .measurement_direction_of_motion_2d import (
+    measurement_direction_of_motion_2d as measurement_direction_of_motion_2d,
+)
 from .type_mounting import type_mounting as type_mounting
 from .measurement_velocity import measurement_velocity as measurement_velocity
-from .measurement_position_velocity_attitude import measurement_position_velocity_attitude as measurement_position_velocity_attitude
-from .measurement_direction_of_motion_3d import measurement_direction_of_motion_3d as measurement_direction_of_motion_3d
-from .measurement_delta_position import measurement_delta_position as measurement_delta_position
+from .measurement_position_velocity_attitude import (
+    measurement_position_velocity_attitude as measurement_position_velocity_attitude,
+)
+from .measurement_direction_of_motion_3d import (
+    measurement_direction_of_motion_3d as measurement_direction_of_motion_3d,
+)
+from .measurement_delta_position import (
+    measurement_delta_position as measurement_delta_position,
+)
 from .measurement_delta_range import measurement_delta_range as measurement_delta_range
-from .measurement_magnetic_field import measurement_magnetic_field as measurement_magnetic_field
-from .type_satnav_satellite_system import type_satnav_satellite_system as type_satnav_satellite_system
-from .measurement_satnav_with_sv_data import measurement_satnav_with_sv_data as measurement_satnav_with_sv_data
+from .measurement_magnetic_field import (
+    measurement_magnetic_field as measurement_magnetic_field,
+)
+from .type_satnav_satellite_system import (
+    type_satnav_satellite_system as type_satnav_satellite_system,
+)
+from .measurement_satnav_with_sv_data import (
+    measurement_satnav_with_sv_data as measurement_satnav_with_sv_data,
+)
 from .type_satnav_sv_data import type_satnav_sv_data as type_satnav_sv_data
 from .type_integrity import type_integrity as type_integrity
-from .measurement_delta_range_to_point import measurement_delta_range_to_point as measurement_delta_range_to_point
+from .measurement_delta_range_to_point import (
+    measurement_delta_range_to_point as measurement_delta_range_to_point,
+)
 from .type_header import type_header as type_header
 from .measurement_time import measurement_time as measurement_time
-from .metadata_GPS_Cnav_ephemeris import metadata_GPS_Cnav_ephemeris as metadata_GPS_Cnav_ephemeris
-from .measurement_magnetic_field_magnitude import measurement_magnetic_field_magnitude as measurement_magnetic_field_magnitude
+from .metadata_GPS_Cnav_ephemeris import (
+    metadata_GPS_Cnav_ephemeris as metadata_GPS_Cnav_ephemeris,
+)
+from .measurement_magnetic_field_magnitude import (
+    measurement_magnetic_field_magnitude as measurement_magnetic_field_magnitude,
+)
 from .measurement_heading import measurement_heading as measurement_heading
-from .measurement_accumulated_distance_traveled import measurement_accumulated_distance_traveled as measurement_accumulated_distance_traveled
+from .measurement_accumulated_distance_traveled import (
+    measurement_accumulated_distance_traveled as measurement_accumulated_distance_traveled,
+)
 from .metadata_image_features import metadata_image_features as metadata_image_features
-from .measurement_angular_velocity_1d import measurement_angular_velocity_1d as measurement_angular_velocity_1d
+from .measurement_angular_velocity_1d import (
+    measurement_angular_velocity_1d as measurement_angular_velocity_1d,
+)
 from .measurement_altitude import measurement_altitude as measurement_altitude
 from .metadata_magnetic_field import metadata_magnetic_field as metadata_magnetic_field
 from .measurement_IMU import measurement_IMU as measurement_IMU
-from .measurement_position_attitude import measurement_position_attitude as measurement_position_attitude
-from .measurement_direction_3d_to_points import measurement_direction_3d_to_points as measurement_direction_3d_to_points
-from .type_satnav_signal_descriptor import type_satnav_signal_descriptor as type_satnav_signal_descriptor
+from .measurement_position_attitude import (
+    measurement_position_attitude as measurement_position_attitude,
+)
+from .measurement_direction_3d_to_points import (
+    measurement_direction_3d_to_points as measurement_direction_3d_to_points,
+)
+from .type_satnav_signal_descriptor import (
+    type_satnav_signal_descriptor as type_satnav_signal_descriptor,
+)
 from .measurement_temperature import measurement_temperature as measurement_temperature
 from .type_timestamp import type_timestamp as type_timestamp
-from .measurement_time_frequency_difference import measurement_time_frequency_difference as measurement_time_frequency_difference
-from .measurement_specific_force_1d import measurement_specific_force_1d as measurement_specific_force_1d
+from .measurement_time_frequency_difference import (
+    measurement_time_frequency_difference as measurement_time_frequency_difference,
+)
+from .measurement_specific_force_1d import (
+    measurement_specific_force_1d as measurement_specific_force_1d,
+)
 from .metadata_satnav_obs import metadata_satnav_obs as metadata_satnav_obs
-from .metadata_GPS_Lnav_ephemeris import metadata_GPS_Lnav_ephemeris as metadata_GPS_Lnav_ephemeris
-from .measurement_satnav_subframe import measurement_satnav_subframe as measurement_satnav_subframe
+from .metadata_GPS_Lnav_ephemeris import (
+    metadata_GPS_Lnav_ephemeris as metadata_GPS_Lnav_ephemeris,
+)
+from .measurement_satnav_subframe import (
+    measurement_satnav_subframe as measurement_satnav_subframe,
+)
 from .measurement_attitude_2d import measurement_attitude_2d as measurement_attitude_2d
-from .measurement_time_difference import measurement_time_difference as measurement_time_difference
-from .metadata_GPS_iono_utc_parameters import metadata_GPS_iono_utc_parameters as metadata_GPS_iono_utc_parameters
-from .metadata_BeiDou_ephemeris import metadata_BeiDou_ephemeris as metadata_BeiDou_ephemeris
-from .metadata_GPS_Mnav_ephemeris import metadata_GPS_Mnav_ephemeris as metadata_GPS_Mnav_ephemeris
-from .measurement_TDOA_2Tx_1Rx import measurement_TDOA_2Tx_1Rx as measurement_TDOA_2Tx_1Rx
+from .measurement_time_difference import (
+    measurement_time_difference as measurement_time_difference,
+)
+from .metadata_GPS_iono_utc_parameters import (
+    metadata_GPS_iono_utc_parameters as metadata_GPS_iono_utc_parameters,
+)
+from .metadata_BeiDou_ephemeris import (
+    metadata_BeiDou_ephemeris as metadata_BeiDou_ephemeris,
+)
+from .metadata_GPS_Mnav_ephemeris import (
+    metadata_GPS_Mnav_ephemeris as metadata_GPS_Mnav_ephemeris,
+)
+from .measurement_TDOA_2Tx_1Rx import (
+    measurement_TDOA_2Tx_1Rx as measurement_TDOA_2Tx_1Rx,
+)
 from .measurement_speed import measurement_speed as measurement_speed
-from .type_direction_3d_to_point import type_direction_3d_to_point as type_direction_3d_to_point
-from .metadata_Galileo_ephemeris import metadata_Galileo_ephemeris as metadata_Galileo_ephemeris
+from .type_direction_3d_to_point import (
+    type_direction_3d_to_point as type_direction_3d_to_point,
+)
+from .metadata_Galileo_ephemeris import (
+    metadata_Galileo_ephemeris as metadata_Galileo_ephemeris,
+)
 from .type_satnav_time import type_satnav_time as type_satnav_time
-from .measurement_range_to_point import measurement_range_to_point as measurement_range_to_point
-from .measurement_direction_2d_to_points import measurement_direction_2d_to_points as measurement_direction_2d_to_points
+from .measurement_range_to_point import (
+    measurement_range_to_point as measurement_range_to_point,
+)
+from .measurement_direction_2d_to_points import (
+    measurement_direction_2d_to_points as measurement_direction_2d_to_points,
+)
+
 # Follow Python export conventions:
 # https://typing.readthedocs.io/en/latest/spec/distributing.html#import-conventions
 from .lcm_translations import (
@@ -289,6 +358,9 @@ from .lcm_translations import (
 from .lcm_translations import measurement_satnav_to_lcm as measurement_satnav_to_lcm
 from .lcm_translations import (
     measurement_satnav_with_sv_data_to_lcm as measurement_satnav_with_sv_data_to_lcm,
+)
+from .lcm_translations import (
+    measurement_custom_satnav_with_sv_data_to_lcm as measurement_custom_satnav_with_sv_data_to_lcm,
 )
 from .lcm_translations import (
     measurement_specific_force_1d_to_lcm as measurement_specific_force_1d_to_lcm,
